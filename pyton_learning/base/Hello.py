@@ -13,8 +13,7 @@ from array import array
 
 b = Bird("Tim")
 b.sayHello()
-dis(Bird) #反汇编
-print sys.path
+dis(Bird) #鍙嶆眹缂�print sys.path
 print sys.platform
 
 x = decimal.Decimal('3.4')
@@ -48,4 +47,7 @@ numbers.append(5)
 print numbers
 
 #code in master version
+#Mac comnit again
+#台机再次提交
+
 
