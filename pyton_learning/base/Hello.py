@@ -46,5 +46,4 @@ print numbers.itemsize
 numbers.append(5)
 print numbers
 
-#Mac next commit
-
+#台机再次提交
