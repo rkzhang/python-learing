@@ -20,9 +20,10 @@ cur = conn.cursor()
 
 id = "0027472d-622c-44aa-8e04-545992e01528"
 cur.execute("select * from wd_shop where id=%s limit 0, 10", id)    
-for row in cur.fetchall():    
-    print row
 
+for rec in cur.fetchall():    
+    print rec
+    
 n = cur.execute("update wd_shop set stat=0 where id=%s ", id)
 print n
 
