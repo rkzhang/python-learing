@@ -1,12 +1,12 @@
 '''
 @author: rkzhang
 '''
-import socket
+import socket_sample
 
 HOST = ''
 PORT = 50011
 
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock = socket_sample.socket_sample(socket_sample.AF_INET, socket_sample.SOCK_STREAM)
 sock.bind((HOST, PORT))
 sock.listen(1)
 
