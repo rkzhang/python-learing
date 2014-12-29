@@ -3,13 +3,8 @@
 Created on 2014年12月25日
 @author: zhangr01
 '''
+from itertools import ifilter
 
-from base64 import urlsafe_b64decode
-
-encode_str = "eyJuYW1lIjoiMTgwNDUwMzIxMDgiLCJtb2JpbGUiOiIxODA0NTAzMjEwOCIsInR5cGUiOjEsInN0YXR1cyI6MSwicmVhbE5hbWUiOiIiLCJiaXJ0aGRheSI6IiIsImFkZHJlc3MiOiIiLCJoZWFkUGhvdG8iOiIifQ"
-len = len(encode_str) % 4
-for i in range(len) : 
-    encode_str += '='
-
-print encode_str
-print urlsafe_b64decode(encode_str)
+#返回所有计算为True的对象, 对应ifilterfalse返回判断为false的
+for i in ifilter(lambda num : num < 50, range(1, 100)) :
+    print i 

@@ -25,12 +25,14 @@ def is_in_range(minmum=None, maxmum=None) :
 def ensure(name, validate, doc=None) : 
     
     def decorator(Class): 
-        privateName = "__" + name
+        privateName = '__' + name
         
         def getter(self):
+            print 'process get ' + privateName
             return getattr(self, privateName)
         
         def setter(self, value):
+            print 'process set ' + privateName
             validate(name, value)
             setattr(self, privateName, value)
             
