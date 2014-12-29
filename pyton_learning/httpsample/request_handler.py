@@ -4,6 +4,7 @@ Created on 2014年12月25日
 @author: zhangr01
 '''
 from BaseHTTPServer import BaseHTTPRequestHandler
+import urllib
 
 class SampleHTTPHandle(BaseHTTPRequestHandler):
     
@@ -23,6 +24,7 @@ class SampleHTTPHandle(BaseHTTPRequestHandler):
         self.end_headers()
         
         resp = '你好  Python Server'.encode('utf-8')
+        
         print '响应内容', resp
         self.wfile.write(resp)  
         

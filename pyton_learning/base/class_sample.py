@@ -2,6 +2,7 @@
 '''
 @author: rkzhang
 '''
+from my_util.validate_util import ensure, is_non_empty_str, is_in_range
 
 class Foo(object):
     
@@ -46,3 +47,17 @@ class AbstractFoo :
     @abstractproperty
     def name(self) :
         pass
+
+@ensure('title', is_non_empty_str)    
+@ensure('price', is_in_range(1, 10000))
+@ensure('quantity', is_in_range(0, 100000))
+class Book : 
+    
+    def __init__(self, title, price, quantity) : 
+        self.title = title
+        self.price = price
+        self.quantity = quantity
+        
+    @property
+    def value(self) : 
+        return self.price + self.quantity
