@@ -28,11 +28,9 @@ def ensure(name, validate, doc=None) :
         privateName = '__' + name
         
         def getter(self):
-            print 'process get ' + privateName
             return getattr(self, privateName)
         
         def setter(self, value):
-            print 'process set ' + privateName
             validate(name, value)
             setattr(self, privateName, value)
             
