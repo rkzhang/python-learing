@@ -8,6 +8,7 @@ import functools
 def filter_one(func) :
     @functools.wraps(func)
     def wrapper(name) :
+        print 'filter_one name -- ' + name
         result = '<li>' + func(name) + '<li>'   
         print 'filter_one result -- ' + result
         return result
@@ -16,6 +17,7 @@ def filter_one(func) :
 def filter_two(func) :
     @functools.wraps(func)
     def wrapper(name) :
+        print 'filter_two name -- ' + name
         result = '<br>' + func(name) + '<br>'   
         print 'filter_two result -- ' + result
         return result
