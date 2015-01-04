@@ -19,12 +19,27 @@ def setHead(req) :
     req.add_header("Host", "www.okooo.com")
     req.add_header("Referer", "http://www.okooo.com/gd11x5/gd11x5zs/r/"+listnum+"/")
     
+def checkOddAndEvenNum(record) : 
+    oddCount = 0
+    evenCount = 0
+    for num in record :
+        n = int(num)
+        if n%2 == 0 :
+            oddCount += 1
+        else :
+            evenCount += 1
+            
+    if oddCount > 3 or evenCount > 3 :
+        return False
+    else :
+        return True
+    
 def check(his_bonus_num) :
     
     def rfilter(record) :
         last_bonus_num = his_bonus_num[len(his_bonus_num) - 1]
         sec = list(set(last_bonus_num).intersection(set(record)))
-        if len(sec) >= 2 : 
+        if len(sec) >= 2 and checkOddAndEvenNum(record): 
             return True
         else :
             return False
