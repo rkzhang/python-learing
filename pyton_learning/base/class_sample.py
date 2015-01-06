@@ -52,7 +52,7 @@ class AbstractFoo :
 @ensure('title', is_non_empty_str)    
 @ensure('price', is_in_range(1, 10000))
 @ensure('quantity', is_in_range(0, 100000))
-class Book : 
+class Book(object) : 
     
     def __init__(self, title, price, quantity) : 
         self.title = title
@@ -77,13 +77,15 @@ def setter(self, value):
     
 setattr(Book, 'title', property(getter, setter))  
 '''
-book = Book('python', 1, 1000)
+book = Book('python', 0, 100000)
 print book
 print book.value
 print book.price
 
+book.price = 3
+'''
 for name, attribute in Book.__dict__.items() : 
     print name, attribute
-
+'''
 
 
