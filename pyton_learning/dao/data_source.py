@@ -11,7 +11,7 @@ from contextlib import contextmanager
 @contextmanager
 def getConn() :
     conn= MySQLdb.connect(
-        host='115.29.245.7',
+        host='127.0.0.1',
         port = 3306,
         user='bridal',
         passwd='bridal',
