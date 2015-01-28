@@ -63,7 +63,7 @@ def checkNum(num) :
         return False
 
 #返回所有计算为True的对象, 对应ifilterfalse返回判断为false的
-for i in ifilter(checkNum, range(1, 100)) :
+for i in ifilter(lambda num : num > 50, range(1, 100)) :
     print i 
     
 def addNum(num1, num2, num3) : 
