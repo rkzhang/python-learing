@@ -8,5 +8,6 @@ db = connection.test
     
 db.user.insert({'id': '123','name': 'name' ,'sex': 'man', 'info' : "{ 'id' : 1, 'name' : 'rkz' }" }) 
 
+
 for rec in db.user.find() :
     print rec['info']
