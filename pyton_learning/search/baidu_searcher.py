@@ -9,6 +9,9 @@ import urllib2
 import re
 import time
 import random
+from dao.data_source import getConn, getCur
+import uuid
+import MySQLdb
 
 queryStr = '足球'
 
@@ -28,6 +31,12 @@ def check(url):
         print distUrl       
         try : 
             pageContent = getPageContent(distUrl)
+            print distUrl
+            with getConn() as conn : 
+                with getCur(conn) as cur :                        
+                    pageContent = MySQLdb.escape_string(pageContent)
+                    sql = "insert into juju_spider values('%s','%s','%s')" % (uuid.uuid4(), distUrl, pageContent)
+                    cur.execute(sql)  
         except Exception, e :
             print e
 
@@ -37,7 +46,7 @@ def query(url) :
     for web in results :
         check(web)
         
-for page in range(100) : 
+for page in range(1000) : 
     url = 'http://www.sogou.com/web?oq=z&stj0=0&query=' + queryStr + '&stj=0%3B0%3B0%3B0&stj2=0&stj1=0&hp=0&hp1=&sut=6213&lkt=9%2C1428049223499%2C1428049227495&ri=0&sst0=1428049229712&page=' + str(page) + '&ie=utf8&p=40040100&dp=1&w=01015002&dr=1'
     query(url)
     time.sleep(random.randint(2, 5) )
