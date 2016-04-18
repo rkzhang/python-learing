@@ -12,6 +12,3 @@ app_log = logging.getLogger("app")
 
 app_log.info("test log info")
 
-#台式机 commi
-#mac commit
-

@@ -11,15 +11,16 @@ from contextlib import contextmanager
 @contextmanager
 def getConn() :
     conn= MySQLdb.connect(
-        host='127.0.0.1',
+        host='192.168.1.81',
         port = 3306,
-        user='bridal',
-        passwd='bridal',
-        db ='wedding',
+        user='ims',
+        passwd='123456',
+        db ='edu',
         charset="utf8"
         )
     print 'achieve conn'
     yield conn
+    conn.commit()
     conn.close()
     print 'close conn'
     
@@ -31,19 +32,4 @@ def getCur(conn) :
     cur.close()
     print 'close cur'
     
-with getConn() as conn : 
-    with getCur(conn) as cur :
-        id = "0027472d-622c-44aa-8e04-545992e01528"
-        cur.execute("select * from wd_shop where id=%s limit 0, 10", id)    
-        
-        for rec in cur.fetchall():    
-            print rec
-            
-        n = cur.execute("update wd_shop set stat=0 where id=%s ", id)
-        print n
-        
-        cur.execute("select * from wd_shop where id=%s limit 0, 10", id)    
-        for row in cur.fetchall():    
-            print row
-        print uuid.uuid4()
 
