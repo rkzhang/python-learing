@@ -6,8 +6,8 @@ Created on 2016年4月19日
 '''
 import pika
 
-credentials = pika.PlainCredentials("guest", "guest")
-conn_params = pika.ConnectionParameters(SERVICE_IP, credentials = credentials)
+credentials = pika.PlainCredentials("sample", "sample")
+conn_params = pika.ConnectionParameters("192.168.1.235", credentials = credentials)
 
 #建立到代理服务器的连接
 conn_broker = pika.BlockingConnection(conn_params)  
@@ -24,9 +24,12 @@ channel.exchange_declare(exchange = "hello-exchange",  #交换机名称
 msg = "hello world"
 msg_props = pika.BasicProperties()
 msg_props.content_type = "text/plain"
+msg_props.delivery_mode = 2
 
 channel.basic_publish(exchange = "hello-exchange", 
                       routing_key = "hola", 
                       body = msg, 
                       properties = msg_props)
 print "send message : %s " % msg
+
+channel.close();

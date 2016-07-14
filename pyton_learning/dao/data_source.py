@@ -13,9 +13,9 @@ def getConn() :
     conn= MySQLdb.connect(
         host='192.168.1.81',
         port = 3306,
-        user='ims',
+        user='edu_user',
         passwd='123456',
-        db ='edu',
+        db ='edu_test',
         charset="utf8"
         )
     print 'achieve conn'

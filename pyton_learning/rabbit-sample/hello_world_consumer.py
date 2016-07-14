@@ -6,8 +6,8 @@ Created on 2016年4月18日
 import pika
     
 def main() :
-    credentials = pika.PlainCredentials("guest", "guest")
-    conn_params = pika.ConnectionParameters("127.0.0.1", credentials = credentials)
+    credentials = pika.PlainCredentials("sample", "sample")
+    conn_params = pika.ConnectionParameters("192.168.1.235", credentials = credentials)
     
     #建立到代理服务器的连接
     conn_broker = pika.BlockingConnection(conn_params)  
